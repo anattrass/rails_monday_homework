@@ -2,7 +2,23 @@ Show.delete_all()
 User.delete_all()
 FavouriteShow.delete_all()
 
-s1 = Show.create({
+user_one = User.create(
+    {
+      email: 'adam@email.com',
+      password: 'password',
+      password_confirmation: 'password'
+    }
+  )
+
+user_two = User.create(
+    {
+      email: 'pumpkin@email.com',
+      password: 'password',
+      password_confirmation: 'password'
+    }
+  )
+
+user_one.favourites.create({
   title: "The Great British Bake Off",
   series: 7,
   description: "Master bakers Mary & Paul and the incomparable presenting duo of Mel & Sue are back for another interesting series about baking cakes.",
@@ -10,13 +26,10 @@ s1 = Show.create({
   programmeID: "b013pqnm" 
 })
 
-s2 = Show.create({
+user_two.favourites.create({
   title: "Friends",
   series: 10,
   description: "Friends will be there for each other, laughs and romps",
   image: "http://combiboilersleeds.com/image.php?pic=/images/friends/friends-4.jpg",
   programmeID: "hjkl09" 
 })
-
-u1 = User.create({name: "Adam Nattrass"})
-u2 = User.create({name: "Jane Cargill"})

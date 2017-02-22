@@ -1,5 +1,7 @@
 class ShowsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def show_params
       params.require(:show).permit([:title, :series, :description, :image, :programmeID])
   end
